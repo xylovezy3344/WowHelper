@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:id="@+id/popup_window"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="16dp">
+        <TextView
+            android:id="@+id/all"
+            style="@style/TitleCategory"
+            android:text="全部"/>
+
+        <TextView
+            style="@style/TitleCategory"
+            android:id="@+id/loot"
+            android:text="掉落"/>
+
+        <TextView
+            style="@style/TitleCategory"
+            android:id="@+id/pvp"
+            android:text="PVP坐骑"/>
+
+        <TextView
+            style="@style/TitleCategory"
+            android:id="@+id/sell"
+            android:text="商人出售"/>
+
+        <TextView
+            style="@style/TitleCategory"
+            android:id="@+id/prestige"
+            android:text="声望奖励"/>
+
+        <TextView
+            style="@style/TitleCategory"
+            android:id="@+id/task"
+            android:text="任务奖励"/>
+
+        <TextView
+            style="@style/TitleCategory"
+            android:id="@+id/achievement"
+            android:text="成就奖励"/>
+
+        <TextView
+            style="@style/TitleCategory"
+            android:id="@+id/world_event"
+            android:text="世界事件"/>
+
+        <TextView
+            style="@style/TitleCategory"
+            android:id="@+id/specialty"
+            android:text="专业技能"/>
+
+        <TextView
+            style="@style/TitleCategory"
+            android:id="@+id/union"
+            android:text="公会奖励"/>
+
+        <TextView
+            style="@style/TitleCategory"
+            android:id="@+id/race"
+            android:text="种族坐骑"/>
+
+        <TextView
+            style="@style/TitleCategory"
+            android:id="@+id/profession"
+            android:text="职业坐骑"/>
+
+        <TextView
+            style="@style/TitleCategory"
+            android:id="@+id/fortress"
+            android:text="要塞"/>
+
+        <TextView
+            style="@style/TitleCategory"
+            android:id="@+id/other"
+            android:text="其它"/>
+
+        <TextView
+            style="@style/TitleCategory"
+            android:id="@+id/black_market"
+            android:text="黑市（绝版）"/>
+
+        <TextView
+            style="@style/TitleCategory"
+            android:id="@+id/out_of_print"
+            android:text="绝版"/>
+
+        <TextView
+            style="@style/TitleCategory"
+            android:id="@+id/outside"
+            android:text="游戏外途径"/>
+    </LinearLayout>
+
+</ScrollView>

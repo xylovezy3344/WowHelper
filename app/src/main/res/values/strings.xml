@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">魔兽助手</string>
+    <string name="title_activity_main">MainActivity</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_djhuh">Djhuh</string>
+    <string name="title_activity_ssdfdf">Ssdfdf</string>
+</resources>

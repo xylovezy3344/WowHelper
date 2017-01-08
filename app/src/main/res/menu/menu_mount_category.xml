@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/all"
+        android:orderInCategory="100"
+        android:title="全部"
+        />
+
+    <item
+        android:id="@+id/loot"
+        android:orderInCategory="101"
+        android:title="掉落"
+        />
+
+    <item
+        android:id="@+id/pvp"
+        android:orderInCategory="102"
+        android:title="PVP坐骑"
+        />
+
+    <item
+        android:id="@+id/sell"
+        android:orderInCategory="103"
+        android:title="商人出售"
+        />
+
+    <item
+        android:id="@+id/prestige"
+        android:orderInCategory="104"
+        android:title="声望奖励"
+        />
+
+    <item
+        android:id="@+id/task"
+        android:orderInCategory="105"
+        android:title="任务奖励"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/achievement"
+        android:orderInCategory="106"
+        android:title="成就奖励"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/world_event"
+        android:orderInCategory="107"
+        android:title="世界事件"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/specialty"
+        android:orderInCategory="108"
+        android:title="专业技能"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/union"
+        android:orderInCategory="109"
+        android:title="公会奖励"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/race"
+        android:orderInCategory="110"
+        android:title="种族坐骑"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/profession"
+        android:orderInCategory="111"
+        android:title="职业坐骑"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/fortress"
+        android:orderInCategory="112"
+        android:title="要塞"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/other"
+        android:orderInCategory="113"
+        android:title="其它"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/black_market"
+        android:orderInCategory="114"
+        android:title="黑市（绝版）"
+        />
+
+    <item
+        android:id="@+id/out_of_print"
+        android:orderInCategory="115"
+        android:title="绝版"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/outside"
+        android:orderInCategory="116"
+        android:title="游戏外途径"
+        />
+
+</menu>
