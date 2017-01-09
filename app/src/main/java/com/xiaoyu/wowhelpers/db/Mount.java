@@ -1,11 +1,14 @@
-package com.xiaoyu.wowhelpers.entity;
+package com.xiaoyu.wowhelpers.db;
+
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import org.greenrobot.greendao.annotation.Entity;
 import org.greenrobot.greendao.annotation.Id;
 import org.greenrobot.greendao.annotation.Generated;
 
 @Entity()
-public class Mount {
+public class Mount implements Parcelable {
     @Id(autoincrement = true)
     private long id;
     private String version;
@@ -28,6 +31,37 @@ public class Mount {
     @Generated(hash = 2014362176)
     public Mount() {
     }
+
+    protected Mount(Parcel in) {
+        id = in.readLong();
+        version = in.readString();
+        name = in.readString();
+        faction = in.readString();
+        fly = in.readByte() != 0;
+        category = in.readString();
+        source = in.readString();
+    }
+
+    public static final Creator<Mount> CREATOR = new Creator<Mount>() {
+        @Override
+        public Mount createFromParcel(Parcel in) {
+            Mount mount = new Mount();
+            mount.id = in.readLong();
+            mount.version = in.readString();
+            mount.name = in.readString();
+            mount.faction = in.readString();
+            mount.fly = (in.readByte() == 1);
+            mount.category = in.readString();
+            mount.source = in.readString();
+            return mount;
+        }
+
+        @Override
+        public Mount[] newArray(int size) {
+            return new Mount[size];
+        }
+    };
+
     public long getId() {
         return this.id;
     }
@@ -72,4 +106,19 @@ public class Mount {
     }
 
 
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(id);
+        dest.writeString(version);
+        dest.writeString(name);
+        dest.writeString(faction);
+        dest.writeByte((byte) (fly ? 1 : 0));
+        dest.writeString(category);
+        dest.writeString(source);
+    }
 }

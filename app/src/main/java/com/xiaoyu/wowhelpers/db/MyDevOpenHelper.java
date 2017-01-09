@@ -1,8 +1,8 @@
-package com.xiaoyu.wowhelpers;
+package com.xiaoyu.wowhelpers.db;
 
 import android.content.Context;
 
-import com.xiaoyu.wowhelpers.entity.DaoMaster;
+import com.xiaoyu.wowhelpers.db.DaoMaster;
 
 import org.greenrobot.greendao.database.Database;
 

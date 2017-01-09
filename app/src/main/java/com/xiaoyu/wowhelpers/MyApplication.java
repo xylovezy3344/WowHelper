@@ -5,14 +5,13 @@ import android.content.res.Resources;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
-import com.xiaoyu.wowhelpers.entity.DaoMaster;
-import com.xiaoyu.wowhelpers.entity.DaoSession;
+import com.xiaoyu.wowhelpers.db.MyDevOpenHelper;
+import com.xiaoyu.wowhelpers.db.DaoMaster;
+import com.xiaoyu.wowhelpers.db.DaoSession;
 
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.InputStream;
-
-import butterknife.ButterKnife;
 
 public class MyApplication extends Application {
 

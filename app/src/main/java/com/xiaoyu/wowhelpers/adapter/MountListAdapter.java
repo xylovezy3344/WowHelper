@@ -1,7 +1,9 @@
 package com.xiaoyu.wowhelpers.adapter;
 
+import android.app.Activity;
 import android.content.Context;
-import android.content.res.Resources;
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,9 +13,13 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.xiaoyu.wowhelpers.MountActivity;
+import com.xiaoyu.wowhelpers.MountDetailActivity;
 import com.xiaoyu.wowhelpers.MyApplication;
 import com.xiaoyu.wowhelpers.R;
-import com.xiaoyu.wowhelpers.entity.Mount;
+import com.xiaoyu.wowhelpers.db.Mount;
+import com.xiaoyu.wowhelpers.utils.ImageUtil;
 
 import java.util.List;
 
@@ -23,9 +29,9 @@ import butterknife.ButterKnife;
 public class MountListAdapter extends RecyclerView.Adapter<MountListAdapter.MountViewHolder> {
 
     private List<Mount> mMountList;
-    private Context mContext;
+    private Activity mContext;
 
-    public MountListAdapter(Context context, List<Mount> mountList) {
+    public MountListAdapter(Activity context, List<Mount> mountList) {
         mContext = context;
         mMountList = mountList;
     }
@@ -42,18 +48,24 @@ public class MountListAdapter extends RecyclerView.Adapter<MountListAdapter.Moun
     @Override
     public void onBindViewHolder(MountViewHolder holder, int position) {
         final Mount mount = mMountList.get(position);
-        holder.mIvMountIcon.setImageResource(getImageResourceId(getImageName(mount.getId())));
+        Glide.with(mContext).load(ImageUtil.mountIdToResourceId(mount.getId()))
+                .asBitmap().into(holder.mIvMountIcon);
         holder.mTvMountName.setText(mount.getName());
         holder.mTvMountCategory.setText("分类：" + mount.getCategory());
 
         holder.mRlMountItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-                builder.setTitle(mount.getName())
-                        .setMessage(mount.getSource())
-                        .setIcon(getImageResourceId(getImageName(mount.getId())))
-                        .show();
+//                AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
+//                builder.setTitle(mount.getName())
+//                        .setMessage(mount.getSource())
+//                        .setIcon(getImageResourceId(getImageName(mount.getId())))
+//                        .show();
+                Intent intent = new Intent(mContext, MountDetailActivity.class);
+                intent.putExtra("selected_mount", mount);
+                mContext.startActivity(intent);
+                MountActivity activity = (MountActivity) mContext;
+                activity.restoreMountList();
             }
         });
     }
@@ -78,34 +90,5 @@ public class MountListAdapter extends RecyclerView.Adapter<MountListAdapter.Moun
             super(itemView);
             ButterKnife.bind(this, itemView);
         }
-    }
-
-    /**
-     * 根据文件名获取资源ID
-     */
-    private int getImageResourceId(String resourceName) {
-
-        Context context = MyApplication.getInstance().getApplicationContext();
-        int resId = context.getResources().getIdentifier(resourceName, "drawable",
-                "com.xiaoyu.wowhelpers");
-        return resId;
-    }
-
-    /**
-     * 根据id组装成文件名
-     */
-    private String getImageName(long id) {
-
-        String imageName = null;
-
-        if (id > 99) {
-            imageName = "mount_" + id;
-        } else if (id > 9) {
-            imageName = "mount_0" + id;
-        } else {
-            imageName = "mount_00" + id;
-        }
-
-        return imageName;
     }
 }
